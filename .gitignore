@@ -5,3 +5,11 @@ ufo2000.log
 obj/
 squad.lua
 init-scripts.log
+
+
+XCOM/*
+!XCOM/.keep
+
+
+TFTD/*
+!TFTD/.keep
