@@ -10,6 +10,10 @@ init-scripts.log
 XCOM/*
 !XCOM/.keep
 
-
 TFTD/*
 !TFTD/.keep
+
+units/*
+!units/.keep
+
+equipment.lua

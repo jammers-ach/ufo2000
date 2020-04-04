@@ -432,6 +432,24 @@ function SetExplosionAnimation(tbl)
     ExplosionAnimation = tbl
 end
 
+-- Loads a single solider from a unit file
+function LoadUnit(soldier_data, soldier)
+    soldier:reset_stats()
+    soldier:set_name(soldier_data.Name)
+    soldier:set_skin_info(soldier_data.SkinType, soldier_data.fFemale, soldier_data.Appearance)
+    for attribute_id, attribute_value in soldier_data.Attributes do
+        soldier:set_attribute(attribute_id, attribute_value)
+    end
+    for place_id, place_data in soldier_data.Inventory do
+        local place = soldier:find_place(place_id)
+        place:destroy_all_items()
+        for _, v in ipairs(place_data) do
+            place:add_item(v[1], v[2], v[3], false)
+            if v[4] then place:add_item(v[1], v[2], v[4], false) end
+        end
+    end
+end
+
 -- Loads squad information
 function LoadSquad(squad_data, squad_object)
     -- sort squad_data by keys
