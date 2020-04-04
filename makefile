@@ -37,7 +37,7 @@
 # targets have to be built from SVN working copy).                           #
 ##############################################################################
 
-UFO_SVNVERSION := ${shell svnversion .}
+UFO_SVNVERSION := ${shell git describe}
 UFO_VERSION := ${shell awk 'BEGIN {FS=sprintf("%c",34)} /UFO_VERSION_STRING/ { print $$2; }' src/version.h}
 
 ifneq ($(UFO_VERSION),)
