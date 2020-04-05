@@ -17,3 +17,9 @@ units/*
 !units/.keep
 
 equipment.lua
+
+*.tmp
+cur_p1.dat
+cur_p2.dat
+cur_map.lua
+battlereport.txt
