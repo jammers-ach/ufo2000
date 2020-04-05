@@ -287,6 +287,7 @@ void Editor::show()
     int i;
     int color = COLOR_LT_OLIVE;
     int A1 = 0, A2 = 0;
+    int soldier_id = 0;
 
     while (mouse_b & 3) rest(1);
 
@@ -301,6 +302,9 @@ void Editor::show()
         rest(1); // Don't eat all CPU resources
 
         if (CHANGE) {
+
+            soldier_id = man->get_NID() - 2000;
+
             g_console->redraw(screen, 0, 400);
 
             blit(editor_bg, screen2, 0, 0, 0, 0, editor_bg->w, editor_bg->h);
@@ -310,7 +314,8 @@ void Editor::show()
             if (man->x != 0)   // ??? This soldier already selected for the mission ?
                 color = COLOR_LT_OLIVE;
             text_mode(-1);
-            textout(screen2, large, man->md.Name, 0, 0, color);
+            std::string name = std::to_string(soldier_id) + ": " + std::string(man->md.Name);
+            textout(screen2, large, name.c_str(), 0, 0, color);
 
             for (i = 0; i < NUMBER_OF_PLACES; i++) //man->drawgrid();
                 man->place(i)->drawgrid(screen2, i);
