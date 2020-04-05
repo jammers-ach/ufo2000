@@ -448,7 +448,15 @@ function LoadUnit(soldier_data, soldier)
             if v[4] then place:add_item(v[1], v[2], v[4], false) end
         end
     end
+
+    -- randomise skin type if they're human
+    genders = {0, 1}
+    apperances = {0, 1, 2, 3}
+    if soldier_data.SkinType == 1 or soldier_data.SkinType == 2 or soldier_data.SkinType == 3 or soldier_dataSkinType == 4 then
+        soldier:set_skin_info(soldier_data.SkinType, random(genders), random(apperances))
+    end
 end
+
 
 -- Loads squad information
 function LoadSquad(squad_data, squad_object)
