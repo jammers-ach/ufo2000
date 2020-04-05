@@ -370,7 +370,7 @@ void Editor::show()
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Ins: Load soldier from template")); ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      Del: Delete items of current man")); /*ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Del: Drop items of current man"));*/ ty += 15;
-                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F11: Cycle through appearences")); ty += 10;
+                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F11: Randomise Name")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F12: Cycle through human armours")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+F12: Cycle through alien races")); ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      Tab: Next soldier")); ty += 10;
@@ -469,21 +469,8 @@ void Editor::show()
                     change_screen_mode();
                     break;
 
-                case KEY_F11:  // cycle thru apperances:
-                    A1 = man->md.Appearance;
-                    A2 = man->md.fFemale;
-                    if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT]) ) { // Shift-F11:
-                        A2++;
-                        if (A2 >= 2) A2 = 0;
-                        man->md.fFemale    = A2;
-                    } else { // F11:
-                        A1 = A1 + (A2 ? 4 : 0);
-                        A1++;
-                        if (A1 >= 8) A1 = 0;
-                        man->md.fFemale    = A1 >= 4;
-                        man->md.Appearance = A1 % 4;
-                    }
-                    man->process_MANDATA();
+                case KEY_F11:  // Randomise name
+                    randomise_name(man);
                     break;
                 case KEY_F12:  // cycle thru armor-types:
                     A1 = man->md.SkinType;
@@ -1049,6 +1036,19 @@ void Editor::save_soldier(Soldier *src)
     alert( "", msg.c_str(), "", _("OK"), NULL, 0, 0);
 }
 
+
+void Editor::randomise_name(Soldier *src)
+{
+    lua_pushstring(L, "RandomiseName");
+    lua_gettable(L, LUA_GLOBALSINDEX);
+
+    int stack_top = lua_gettop(L);
+    LUA_PUSH_OBJECT_POINTER(L, src);
+    lua_pushstring(L, src->get_name());
+    lua_pushnumber(L, src->md.SkinType);
+    lua_safe_call(L, 3, 0);
+
+}
 
 void Editor::load_soldier(Soldier *src)
 {
