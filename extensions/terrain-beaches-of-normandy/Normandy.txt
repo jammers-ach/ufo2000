@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------
+--  BEACHES OF NORMANDY, c 2005 by Violazr			V 0.9	--
+--									--
+--  For more info, feedback and suggestions please see			--
+--  http://www.xcomufo.com/forums/index.php?showtopic=8043		--
+--------------------------------------------------------------------------
+
+
+
+* This terrain is set to provide a scenario similar to the landing of allied troops in occupied Normandy on d-day June 6th, 1944. It's my debut project for UFO2000 into which I put a lot of effort, so I hope you like it. :) 
+
+* The terrain was concieved as a 6x6 map and is played best in this size.
+In 4x4, the beach is shorter and the trenches in the back are missing.
+The 5x5 terrain comes in two versions: One with a shorter beach and one without trenches.
+
+* This map is not balanced, nor is it meant to be. The attacking player is at a disadvantage, but will enjoy victory just as much more. Defending against a well planned assault, however, can also be challenging. Try swapping sides after each match.
+
+* Use PGUP/PGDN to quickly change height levels. Check all levels for things your soliders have uncovered, or use the "toggle roof" option.
+
+* It's best to always use the line of fire preview, and maybe have the map explored if you haven't played it before. The game's lof/sight code still isn't perfect for uneven terrain.
+
+* The ground tiles were made indestructible for gameplay reasons. Several other things, especially bunkers, are rather tough. Bring some explosives. ;)
+ 
+* Try playing with conventional weapons only for authentic D-Day feeling.
+
+* The changes in height sometimes make the soldiers stop or don't allow TU calculations (another game engine thing). Sometimes they will only move if the movement box is on the correct level.
+
+* If your soldier doesn't move no matter what, and you think it's another terrain bug, he's out of stamina. ;)
+
+* The terrain generation in the .lua is commented. You may use it for your own maps if you want.
+
+* If you encouter any bugs, please report them in the forum thread. Any feedback is apprecitated and will help to further improve the maps. 
+
+* Give this map to all your friends! :)
+
+
+
+HAVE FUN!
+
+- Violazr
