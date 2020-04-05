@@ -1,0 +1,37 @@
+return {
+	Name = "Sectoid scout",
+	SkinType = 5,
+	fFemale = 0,
+	Appearance = 0,
+	Attributes = {
+		TimeUnits = 80,
+		Health = 50,
+		Stamina = 70,
+		Reactions = 60,
+		Strength = 25,
+		Firing = 50,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{1, 1, "Plasma Pistol", "Plasma Pistol Clip"},
+		},
+		["LEFT HAND"] = {
+			{0, 1, "Alien Grenade"},
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}

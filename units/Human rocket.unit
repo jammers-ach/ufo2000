@@ -1,0 +1,38 @@
+return {
+	Name = "Human rocket",
+	SkinType = 2,
+	fFemale = 1,
+	Appearance = 2,
+	Attributes = {
+		TimeUnits = 60,
+		Health = 60,
+		Stamina = 50,
+		Reactions = 50,
+		Strength = 28,
+		Firing = 70,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Rocket Launcher", "Small Rocket"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+			{0, 0, "Small Rocket"},
+			{1, 0, "Small Rocket"},
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}
