@@ -36,16 +36,16 @@ struct Buffer
     bool empty;
     MANDATA md;
     ITEMDATA id;
-}; 
+};
 
-/** 
+/**
  * Squad editor class. It is used from the planner screen to load,
  * save or edit soldiers in a current squad.
  *
  * @ingroup planner
  */
 class Editor
-{ 
+{
 private:
     Place   *m_armoury;
     Soldier *man;
@@ -63,7 +63,10 @@ private:
 
     void copy_soldier(Soldier *src);
     void paste_soldier(Soldier *dest);
-    
+
+    void save_soldier(Soldier *src);
+    void load_soldier(Soldier *dest);
+
     void change_equipment();
     void scroll_equipment(int delta);
 

@@ -66,7 +66,7 @@ Editor::Editor()
     man = m_plt->captain();
 
     sel_item = NULL;
-    //dup_item = NULL;    
+    //dup_item = NULL;
     buffer.empty = true;
 }
 
@@ -85,14 +85,14 @@ Editor::~Editor()
  */
 void Editor::load()
 {
-    std::string filename = gui_file_select(SCREEN_W / 2, SCREEN_H / 2, 
+    std::string filename = gui_file_select(SCREEN_W / 2, SCREEN_H / 2,
         _("Load squad (*.squad files)"), F("$(home)"), "squad");
-    
+
     if (filename.empty()) {
         alert( "", _("No saved squads found!"), "", _("OK"), NULL, 0, 0);
         return;
     }
-    
+
     m_plt->load_FULLDATA(filename.c_str());
     lua_message(std::string("Squad loaded: ") + filename);
 }
@@ -103,9 +103,9 @@ void Editor::load()
  */
 void Editor::save()
 {
-    std::string filename = gui_file_select(SCREEN_W / 2, SCREEN_H / 2, 
+    std::string filename = gui_file_select(SCREEN_W / 2, SCREEN_H / 2,
         _("Save squad (*.squad file)"), F("$(home)"), "squad", true);
-    
+
     if (!filename.empty()) {
         m_plt->save_FULLDATA(filename.c_str());
         lua_message(std::string("Squad saved: ") + filename);
@@ -115,7 +115,7 @@ void Editor::save()
 void Editor::export_weaponset()
 {
     std::string filename = "equipment.lua";
-    
+
     if (!filename.empty()) {
         m_armoury->export_as_weaponset(filename.c_str());
         g_console->printf(COLOR_RED04, _("Armoury layout exported as weapon set template to %s"), F(filename.c_str()));
@@ -149,8 +149,8 @@ bool Editor::handle_mouse_leftclick()
     if (mouse_inside( 50, 50, 110, 142)) {  // Picture of soldier (Powerarmor)
         edit_soldier();
         return false;
-    } 
-    // Mouse click on text "ARMORY": change equipment dialog 
+    }
+    // Mouse click on text "ARMORY": change equipment dialog
     if (mouse_inside(0, 200, 105, 220)) {
         change_equipment();
         return false;
@@ -198,7 +198,7 @@ bool Editor::handle_mouse_leftclick()
 
                     if (sel_item_place == P_ARMOURY && (key[KEY_LSHIFT]) || (key[KEY_RSHIFT])) {
                         // While holding SHIFT key, the same item remains selected, so we don't
-                        // drop it to the soldier, but make a copy - useful for equipping with 
+                        // drop it to the soldier, but make a copy - useful for equipping with
                         // clips or grenades
                         sel_item = sel_item->create_duplicate();
                     } else {
@@ -219,7 +219,7 @@ bool Editor::handle_mouse_leftclick()
                 m_armoury->get_items_list(items);
                 int i;
                 for (i = 0; i < (int)items.size(); i++) {
-                    if (items[i] != sel_item && items[i]->m_place == m_armoury && 
+                    if (items[i] != sel_item && items[i]->m_place == m_armoury &&
                         items[i]->m_type == sel_item->m_type) {
                         // Do not delete item here as some pointers it items vector may
                         // become invalid (pointers to ammo in the case of deleted gun),
@@ -261,10 +261,10 @@ void Editor::show()
 {
     reset_video();
     destroy_bitmap(screen2);
-    screen2 = create_bitmap(640, 400); 
+    screen2 = create_bitmap(640, 400);
     clear(screen2);
 
-    // Prepare background picture for editor screen to improve 
+    // Prepare background picture for editor screen to improve
     // performance a bit (static image that is never changed)
     BITMAP *editor_bg = create_bitmap(640, 400);
     clear_to_color(editor_bg, COLOR_BLACK1);
@@ -277,7 +277,7 @@ void Editor::show()
     destroy_bitmap(b5);
     rectfill(editor_bg, 288, 32, 319, 57, COLOR_GRAY15);    //hide unused "unload" button
     text_mode(-1);
-    textout(editor_bg, g_small_font, _("Click-and-drop weapons from the armory to the soldier, right-click to remove"), 0, 364 + 22, COLOR_WHITE); 
+    textout(editor_bg, g_small_font, _("Click-and-drop weapons from the armory to the soldier, right-click to remove"), 0, 364 + 22, COLOR_WHITE);
 
     position_mouse(320, 200);
     MouseRange temp_mouse_range(0, 0, 639, 400);
@@ -287,6 +287,7 @@ void Editor::show()
     int i;
     int color = COLOR_LT_OLIVE;
     int A1 = 0, A2 = 0;
+    int soldier_id = 0;
 
     while (mouse_b & 3) rest(1);
 
@@ -301,6 +302,9 @@ void Editor::show()
         rest(1); // Don't eat all CPU resources
 
         if (CHANGE) {
+
+            soldier_id = man->get_NID() - 2000;
+
             g_console->redraw(screen, 0, 400);
 
             blit(editor_bg, screen2, 0, 0, 0, 0, editor_bg->w, editor_bg->h);
@@ -310,7 +314,8 @@ void Editor::show()
             if (man->x != 0)   // ??? This soldier already selected for the mission ?
                 color = COLOR_LT_OLIVE;
             text_mode(-1);
-            textout(screen2, large, man->md.Name, 0, 0, color);
+            std::string name = std::to_string(soldier_id) + ": " + std::string(man->md.Name);
+            textout(screen2, large, name.c_str(), 0, 0, color);
 
             for (i = 0; i < NUMBER_OF_PLACES; i++) //man->drawgrid();
                 man->place(i)->drawgrid(screen2, i);
@@ -361,8 +366,8 @@ void Editor::show()
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F5: Change weaponset")); ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F6: Save as weapon set template")); ty += 15;
 
-                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _(" Ctrl+Ins: Copy current soldier")); ty += 10;
-                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Ins: Paste on current soldier")); ty += 15;
+                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _(" Ctrl+Ins: Save soldier template")); ty += 10;
+                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Ins: Load soldier from template")); ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      Del: Delete items of current man")); /*ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Del: Drop items of current man"));*/ ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F11: Cycle through appearences")); ty += 10;
@@ -431,12 +436,12 @@ void Editor::show()
             CHANGE = 1;
           //int c = readkey();
           //switch (c >> 8) {
-            int scancode; int keycode = ureadkey(&scancode); 
-            switch (scancode) { 
+            int scancode; int keycode = ureadkey(&scancode);
+            switch (scancode) {
                 case KEY_F1:
                     help( HELP_INVENTORY );
                     break;
-                // Todo: Change from "Save&Load Team" to "Save&Load Soldier" 
+                // Todo: Change from "Save&Load Team" to "Save&Load Soldier"
                 // Todo: move "Save&Load Team" to Mission-planner (connect.cpp)
                 case KEY_F2:
                     //if (askmenu("SAVE DATA")) {
@@ -467,11 +472,11 @@ void Editor::show()
                 case KEY_F11:  // cycle thru apperances:
                     A1 = man->md.Appearance;
                     A2 = man->md.fFemale;
-                    if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT]) ) { // Shift-F11: 
+                    if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT]) ) { // Shift-F11:
                         A2++;
                         if (A2 >= 2) A2 = 0;
                         man->md.fFemale    = A2;
-                    } else { // F11: 
+                    } else { // F11:
                         A1 = A1 + (A2 ? 4 : 0);
                         A1++;
                         if (A1 >= 8) A1 = 0;
@@ -491,11 +496,11 @@ void Editor::show()
 //
                 case KEY_INSERT:  // Todo: Copy items from last DEL to current man
                     if ((key[KEY_LCONTROL]) || (key[KEY_RCONTROL])) {
-                        copy_soldier(man);
+                        save_soldier(man);
                         break;
                     }
                     if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT])) {
-                        paste_soldier(man);
+                        load_soldier(man);
                         break;
                     }
                     break;
@@ -526,7 +531,7 @@ void Editor::show()
                     break;
                 case KEY_RIGHT:
                     man = man->nextman();
-                    break;     
+                    break;
 
                  case KEY_PGUP:
                     scroll_equipment(-1);
@@ -542,7 +547,7 @@ void Editor::show()
                 case KEY_ESC:
                     DONE = 1;
                     break;
-                default: 
+                default:
                     if (g_console->process_keyboard_input(keycode, scancode))
                         net->send_message((char *)g_console->get_text());
             }
@@ -597,7 +602,7 @@ int Editor::load_clip()
 #define STW 105
 #define SH  20
 
-#define D_NAME         3 
+#define D_NAME         3
 #define D_POINTS       4
 #define D_RACE         6
 #define D_ARMOUR       8
@@ -629,7 +634,7 @@ static int get_list_size(const char **list)
 static void fixup_unit_info();
 
 // Todo: gettext ??
-static const char *race_names[] = { 
+static const char *race_names[] = {
     "human",
     "sectoid",
     "muton",
@@ -641,7 +646,7 @@ static const char *race_names[] = {
     NULL
 };
 
-static const char *armour_names_human[] = { 
+static const char *armour_names_human[] = {
     "none",
     "standard",
     "power",
@@ -649,32 +654,32 @@ static const char *armour_names_human[] = {
     NULL
 };
 
-static const char *armour_names_alien[] = { 
+static const char *armour_names_alien[] = {
     "standard",
     NULL
 };
 
-static const char *armour_names_chameleon[] = { 
+static const char *armour_names_chameleon[] = {
     "standard",
     NULL
 };
 
 static const char **armour_names;
 
-static const char *appearance_names_human[] = { 
-    "blonde guy", 
-    "hispanic guy", 
+static const char *appearance_names_human[] = {
+    "blonde guy",
+    "hispanic guy",
     "oriental guy",
     "black guy",
-    "blonde girl", 
-    "brunette girl", 
+    "blonde girl",
+    "brunette girl",
     "oriental girl",
     "black girl",
     NULL
 };
 
-static const char *appearance_names_alien[] = { 
-    "standard", 
+static const char *appearance_names_alien[] = {
+    "standard",
     NULL
 };
 
@@ -714,8 +719,8 @@ static void init_chameleon_appearances()
 }
 
 static int common_change_button_proc(
-    const char *title, 
-    const char **names, 
+    const char *title,
+    const char **names,
     int msg, DIALOG *d, int c)
 {
     int result = d_button_proc(msg, d, c);
@@ -811,7 +816,7 @@ static int d_agup_slider_pro2(int msg, DIALOG * d, int c)
 }
 
 /**
- * Sets correct value ranges in GUI controls 
+ * Sets correct value ranges in GUI controls
  * after the user changes information related to skins
  */
 static void fixup_unit_info()
@@ -844,7 +849,7 @@ static void fixup_unit_info()
 }
 
 /**
- * Shows unit-stats edit-dialog and allows to edit unit stats, 
+ * Shows unit-stats edit-dialog and allows to edit unit stats,
  * change name, and armour (=skin)
  */
 void Editor::edit_soldier()
@@ -913,9 +918,9 @@ void Editor::edit_soldier()
 
     while (mouse_b & 3) rest(1);
 
-    if (man->md.SkinType == S_XCOM_0 || 
-        man->md.SkinType == S_XCOM_1 || 
-        man->md.SkinType == S_XCOM_2 || 
+    if (man->md.SkinType == S_XCOM_0 ||
+        man->md.SkinType == S_XCOM_1 ||
+        man->md.SkinType == S_XCOM_2 ||
         man->md.SkinType == S_XCOM_3) {
         appearance_names = appearance_names_human;
         armour_names     = armour_names_human;
@@ -970,38 +975,38 @@ void Editor::edit_soldier()
     popup_dialog(sol_dialog, -1);
 
     switch (sol_dialog[D_RACE].d1) {
-        case  0: 
+        case  0:
             man->md.fFemale = sol_dialog[D_APPEARANCE].d1 >= 4;
             man->md.Appearance = sol_dialog[D_APPEARANCE].d1 % 4;
-            man->md.SkinType = sol_dialog[D_ARMOUR].d1 + 1; 
+            man->md.SkinType = sol_dialog[D_ARMOUR].d1 + 1;
             break;
-        case  1: 
+        case  1:
             man->md.fFemale = 0;
-            man->md.SkinType = S_SECTOID; 
+            man->md.SkinType = S_SECTOID;
             break;
-        case  2: 
+        case  2:
             man->md.fFemale = 0;
-            man->md.SkinType = S_MUTON; 
+            man->md.SkinType = S_MUTON;
             break;
-        case  3: 
+        case  3:
             man->md.fFemale = 0;
             man->md.SkinType = S_SNAKEMAN; //LAWYER:  Snakeman!!
             break;
-        case  4: 
+        case  4:
             man->md.fFemale = 0;
             man->md.SkinType = S_ETHEREAL; //LAWYER:  Ethereal!!
             break;
         case 5:
             man->md.fFemale = 0;
             man->md.SkinType = S_FLOATER; //LAWYER:  Floater!!
-            break;      
+            break;
         case 6:
             man->md.fFemale = 0;
             man->md.SkinType = S_CHRYS; //Kratos: Chryssalid
             break;
-        default: 
+        default:
             man->md.fFemale = 0; // Here too, even though it looks inconsistent
-            man->md.SkinType = S_CHAMELEON; 
+            man->md.SkinType = S_CHAMELEON;
             man->md.Appearance = sol_dialog[D_APPEARANCE].d1;
             break;
     }
@@ -1020,12 +1025,61 @@ void Editor::edit_soldier()
     ::sol_dialog = NULL;
 }
 
+
+
+void Editor::save_soldier(Soldier *src)
+{
+    std::string str;
+    str += "{\n";
+    std::string soldier_str;
+    src->save_to_string(soldier_str);
+    str += indent(soldier_str);
+    str += "},\n";
+
+    std::string name = "units/";
+    name += src->md.Name;
+    name += ".unit";
+
+    FILE *f = fopen(F(name.c_str()), "wt");
+    std::string x = "return {\n" + indent(soldier_str) + "}\n";
+    fprintf(f, "%s", x.c_str());
+    fclose(f);
+
+    std::string msg = _("Unit saved: ") + name;
+    alert( "", msg.c_str(), "", _("OK"), NULL, 0, 0);
+}
+
+
+void Editor::load_soldier(Soldier *src)
+{
+    std::string filename = gui_file_select(SCREEN_W / 2, SCREEN_H / 2,
+        _("Load unit (*.unit files)"), F("$(home)/units"), "unit");
+
+    if (filename.empty()) {
+        alert( "", _("No saved units found!"), "", _("OK"), NULL, 0, 0);
+        return;
+    }
+
+    lua_pushstring(L, "LoadUnit");
+    lua_gettable(L, LUA_GLOBALSINDEX);
+
+    // load team information as a table on the top of lua stack
+    int stack_top = lua_gettop(L);
+    lua_safe_dofile(L, F(filename.c_str()), "restricted_sandbox");
+    lua_settop(L, stack_top + 1);
+    LUA_PUSH_OBJECT_POINTER(L, src);
+    lua_safe_call(L, 2, 0);
+
+    std::string msg = _("Unit loaded: ") + filename;
+    alert( "", msg.c_str(), "", _("OK"), NULL, 0, 0);
+}
+
 void Editor::copy_soldier(Soldier *src)
 {
     buffer.empty = false;
-    
+
     src->build_ITEMDATA();
-    
+
     buffer.md = src->md;
     buffer.id = src->id;
 }
@@ -1033,20 +1087,20 @@ void Editor::copy_soldier(Soldier *src)
 void Editor::paste_soldier(Soldier *dest)
 {
     if (buffer.empty) return;
-    
+
     std::string prev_name = dest->md.Name;
-    
+
     dest->md = buffer.md;
     dest->id = buffer.id;
-    
+
     strcpy(dest->md.Name, prev_name.c_str());
-    
+
     dest->process_MANDATA();
     dest->process_ITEMDATA();
 }
-         
+
 /**
- * Let the user select a set of equipment available in the armory, 
+ * Let the user select a set of equipment available in the armory,
  * e.g. "standard", "no explosives", "no alien weapons" etc.
  *
  * Query which sets are defined in ./init-scripts/standard-equipment.lua,
@@ -1058,7 +1112,7 @@ void Editor::change_equipment()
     int index = query_equipment_sets(eqsets);
     if (eqsets.size() > 0) {
         int result = gui_select_from_list(
-            300, 200, _("Select equipment set"), 
+            300, 200, _("Select equipment set"),
             eqsets, index != -1 ? index : 0);
 
         if (set_current_equipment_name(eqsets[result].c_str()))
