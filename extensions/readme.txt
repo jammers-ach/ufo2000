@@ -1,2 +1,2 @@
-Custom addons and extensions are installed here.
-Each extension is installed in its own directory.
+Location of legacy maps for ufo2000, support for maps placed in this directory
+can be removed from the game any time. Please use 'extensions' directory instead.
