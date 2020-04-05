@@ -1,0 +1,40 @@
+return {
+	Name = "Snakeman soldier",
+	SkinType = 7,
+	fFemale = 0,
+	Appearance = 1,
+	Attributes = {
+		TimeUnits = 50,
+		Health = 70,
+		Stamina = 50,
+		Reactions = 50,
+		Strength = 25,
+		Firing = 75,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Small Launcher", "Stun Bomb"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+			{0, 1, "Stun Bomb"},
+			{1, 0, "Stun Bomb"},
+			{2, 0, "Stun Bomb"},
+			{0, 0, "Stun Bomb"},
+		},
+		["GROUND"] = {
+		},
+	},
+}

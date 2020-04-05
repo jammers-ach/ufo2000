@@ -1,0 +1,37 @@
+return {
+	Name = "Human scout",
+	SkinType = 2,
+	fFemale = 1,
+	Appearance = 2,
+	Attributes = {
+		TimeUnits = 80,
+		Health = 80,
+		Stamina = 50,
+		Reactions = 50,
+		Strength = 25,
+		Firing = 60,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{1, 0, "Laser Rifle"},
+		},
+		["LEFT HAND"] = {
+			{1, 2, "Proximity Grenade"},
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}

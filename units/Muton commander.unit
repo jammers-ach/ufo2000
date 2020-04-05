@@ -1,0 +1,36 @@
+return {
+	Name = "Muton commander",
+	SkinType = 6,
+	fFemale = 0,
+	Appearance = 1,
+	Attributes = {
+		TimeUnits = 50,
+		Health = 80,
+		Stamina = 50,
+		Reactions = 60,
+		Strength = 25,
+		Firing = 80,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Heavy Plasma", "Heavy Plasma Clip"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}
