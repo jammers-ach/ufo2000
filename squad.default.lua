@@ -1,14 +1,274 @@
 return {
 	{
-		Name = "Soldier 1"
+		Name = "Human scout",
+		SkinType = 2,
+		fFemale = 0,
+		Appearance = 0,
+		Attributes = {
+			TimeUnits = 80,
+			Health = 80,
+			Stamina = 50,
+			Reactions = 50,
+			Strength = 25,
+			Firing = 60,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 0, "Laser Rifle"},
+			},
+			["LEFT HAND"] = {
+				{1, 2, "Proximity Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Human scout",
+		SkinType = 2,
+		fFemale = 0,
+		Appearance = 1,
+		Attributes = {
+			TimeUnits = 80,
+			Health = 80,
+			Stamina = 50,
+			Reactions = 50,
+			Strength = 25,
+			Firing = 60,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 0, "Laser Rifle"},
+			},
+			["LEFT HAND"] = {
+				{1, 2, "Proximity Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Human scout",
 		SkinType = 2,
 		fFemale = 1,
 		Appearance = 1,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
+			TimeUnits = 80,
+			Health = 80,
+			Stamina = 50,
 			Reactions = 50,
+			Strength = 25,
+			Firing = 60,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 0, "Laser Rifle"},
+			},
+			["LEFT HAND"] = {
+				{1, 2, "Proximity Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Human rocket",
+		SkinType = 2,
+		fFemale = 1,
+		Appearance = 1,
+		Attributes = {
+			TimeUnits = 60,
+			Health = 60,
+			Stamina = 50,
+			Reactions = 50,
+			Strength = 28,
+			Firing = 70,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{0, 0, "Rocket Launcher", "Small Rocket"},
+			},
+			["LEFT HAND"] = {
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+				{0, 0, "Small Rocket"},
+				{1, 0, "Small Rocket"},
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Sectoid scout",
+		SkinType = 5,
+		fFemale = 0,
+		Appearance = 0,
+		Attributes = {
+			TimeUnits = 80,
+			Health = 50,
+			Stamina = 70,
+			Reactions = 60,
+			Strength = 25,
+			Firing = 50,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 1, "Plasma Pistol", "Plasma Pistol Clip"},
+			},
+			["LEFT HAND"] = {
+				{0, 1, "Alien Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Sectoid scout",
+		SkinType = 5,
+		fFemale = 0,
+		Appearance = 0,
+		Attributes = {
+			TimeUnits = 80,
+			Health = 50,
+			Stamina = 70,
+			Reactions = 60,
+			Strength = 25,
+			Firing = 50,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 1, "Plasma Pistol", "Plasma Pistol Clip"},
+			},
+			["LEFT HAND"] = {
+				{0, 1, "Alien Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Sectoid scout",
+		SkinType = 5,
+		fFemale = 0,
+		Appearance = 0,
+		Attributes = {
+			TimeUnits = 80,
+			Health = 50,
+			Stamina = 70,
+			Reactions = 60,
+			Strength = 25,
+			Firing = 50,
+			Throwing = 50,
+		},
+		Inventory = {
+			["RIGHT SHOULDER"] = {
+			},
+			["LEFT SHOULDER"] = {
+			},
+			["RIGHT HAND"] = {
+				{1, 1, "Plasma Pistol", "Plasma Pistol Clip"},
+			},
+			["LEFT HAND"] = {
+				{0, 1, "Alien Grenade"},
+			},
+			["RIGHT LEG"] = {
+			},
+			["LEFT LEG"] = {
+			},
+			["BACK PACK"] = {
+			},
+			["BELT"] = {
+			},
+			["GROUND"] = {
+			},
+		},
+	},
+	{
+		Name = "Muton commander",
+		SkinType = 6,
+		fFemale = 0,
+		Appearance = 1,
+		Attributes = {
+			TimeUnits = 50,
+			Health = 80,
+			Stamina = 50,
+			Reactions = 60,
 			Strength = 25,
 			Firing = 80,
 			Throwing = 50,
@@ -19,7 +279,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Heavy Plasma", "Heavy Plasma Clip"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -36,15 +296,15 @@ return {
 		},
 	},
 	{
-		Name = "Soldier 2"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
+		Name = "Floater soldier",
+		SkinType = 9,
+		fFemale = 0,
+		Appearance = 0,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
+			TimeUnits = 70,
+			Health = 50,
+			Stamina = 50,
+			Reactions = 70,
 			Strength = 25,
 			Firing = 80,
 			Throwing = 50,
@@ -55,7 +315,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Plasma Rifle", "Plasma Rifle Clip"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -72,15 +332,15 @@ return {
 		},
 	},
 	{
-		Name = "Soldier 3"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
+		Name = "Floater soldier",
+		SkinType = 9,
+		fFemale = 0,
+		Appearance = 0,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
+			TimeUnits = 70,
+			Health = 50,
+			Stamina = 50,
+			Reactions = 70,
 			Strength = 25,
 			Firing = 80,
 			Throwing = 50,
@@ -91,7 +351,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Plasma Rifle", "Plasma Rifle Clip"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -108,15 +368,15 @@ return {
 		},
 	},
 	{
-		Name = "Soldier 4"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
+		Name = "Floater soldier",
+		SkinType = 9,
+		fFemale = 0,
+		Appearance = 0,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
+			TimeUnits = 70,
+			Health = 50,
+			Stamina = 50,
+			Reactions = 70,
 			Strength = 25,
 			Firing = 80,
 			Throwing = 50,
@@ -127,7 +387,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Plasma Rifle", "Plasma Rifle Clip"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -144,15 +404,15 @@ return {
 		},
 	},
 	{
-		Name = "Soldier 5"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
+		Name = "Floater soldier",
+		SkinType = 9,
+		fFemale = 0,
+		Appearance = 0,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
+			TimeUnits = 70,
+			Health = 50,
+			Stamina = 50,
+			Reactions = 70,
 			Strength = 25,
 			Firing = 80,
 			Throwing = 50,
@@ -163,7 +423,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Plasma Rifle", "Plasma Rifle Clip"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -180,17 +440,17 @@ return {
 		},
 	},
 	{
-		Name = "Soldier 6"
-		SkinType = 2,
-		fFemale = 1,
+		Name = "Snakeman soldier",
+		SkinType = 7,
+		fFemale = 0,
 		Appearance = 1,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
+			TimeUnits = 50,
+			Health = 70,
+			Stamina = 50,
 			Reactions = 50,
 			Strength = 25,
-			Firing = 80,
+			Firing = 75,
 			Throwing = 50,
 		},
 		Inventory = {
@@ -199,7 +459,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Small Launcher", "Stun Bomb"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -210,23 +470,27 @@ return {
 			["BACK PACK"] = {
 			},
 			["BELT"] = {
+				{0, 1, "Stun Bomb"},
+				{1, 0, "Stun Bomb"},
+				{2, 0, "Stun Bomb"},
+				{0, 0, "Stun Bomb"},
 			},
 			["GROUND"] = {
 			},
 		},
 	},
 	{
-		Name = "Soldier 7"
-		SkinType = 2,
-		fFemale = 1,
+		Name = "Snakeman soldier",
+		SkinType = 7,
+		fFemale = 0,
 		Appearance = 1,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
+			TimeUnits = 50,
+			Health = 70,
+			Stamina = 50,
 			Reactions = 50,
 			Strength = 25,
-			Firing = 80,
+			Firing = 75,
 			Throwing = 50,
 		},
 		Inventory = {
@@ -235,7 +499,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Small Launcher", "Stun Bomb"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -246,23 +510,27 @@ return {
 			["BACK PACK"] = {
 			},
 			["BELT"] = {
+				{0, 1, "Stun Bomb"},
+				{1, 0, "Stun Bomb"},
+				{2, 0, "Stun Bomb"},
+				{0, 0, "Stun Bomb"},
 			},
 			["GROUND"] = {
 			},
 		},
 	},
 	{
-		Name = "Soldier 8"
-		SkinType = 2,
-		fFemale = 1,
+		Name = "Snakeman soldier",
+		SkinType = 7,
+		fFemale = 0,
 		Appearance = 1,
 		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
+			TimeUnits = 50,
+			Health = 70,
+			Stamina = 50,
 			Reactions = 50,
 			Strength = 25,
-			Firing = 80,
+			Firing = 75,
 			Throwing = 50,
 		},
 		Inventory = {
@@ -271,7 +539,7 @@ return {
 			["LEFT SHOULDER"] = {
 			},
 			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
+				{0, 0, "Small Launcher", "Stun Bomb"},
 			},
 			["LEFT HAND"] = {
 			},
@@ -282,258 +550,10 @@ return {
 			["BACK PACK"] = {
 			},
 			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 9"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 10"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 11"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 12"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 13"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 14"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
-			},
-			["GROUND"] = {
-			},
-		},
-	},
-	{
-		Name = "Soldier 15"
-		SkinType = 2,
-		fFemale = 1,
-		Appearance = 1,
-		Attributes = {
-			TimeUnits = 79,
-			Health = 51,
-			Stamina = 60,
-			Reactions = 50,
-			Strength = 25,
-			Firing = 80,
-			Throwing = 50,
-		},
-		Inventory = {
-			["RIGHT SHOULDER"] = {
-			},
-			["LEFT SHOULDER"] = {
-			},
-			["RIGHT HAND"] = {
-				{0, 0, "Laser Rifle"},
-			},
-			["LEFT HAND"] = {
-			},
-			["RIGHT LEG"] = {
-			},
-			["LEFT LEG"] = {
-			},
-			["BACK PACK"] = {
-			},
-			["BELT"] = {
+				{0, 1, "Stun Bomb"},
+				{1, 0, "Stun Bomb"},
+				{2, 0, "Stun Bomb"},
+				{0, 0, "Stun Bomb"},
 			},
 			["GROUND"] = {
 			},
