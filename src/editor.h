@@ -71,6 +71,7 @@ private:
 
     void change_equipment();
     void scroll_equipment(int delta);
+    int get_platoon_cost();
 
 public:
     Editor();
