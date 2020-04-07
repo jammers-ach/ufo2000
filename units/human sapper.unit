@@ -1,0 +1,42 @@
+return {
+	Name = "human sapper",
+	SkinType = 4,
+	fFemale = 0,
+	Appearance = 0,
+	Attributes = {
+		TimeUnits = 50,
+		Health = 50,
+		Stamina = 80,
+		Reactions = 60,
+		Strength = 27,
+		Firing = 76,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{1, 0, "Laser Pistol"},
+		},
+		["LEFT HAND"] = {
+			{0, 0, "Alien Grenade"},
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+			{0, 2, "High Explosive"},
+		},
+		["BELT"] = {
+			{2, 0, "Incendiary Grenade"},
+			{3, 0, "Incendiary Grenade"},
+			{1, 0, "Smoke Grenade"},
+			{0, 1, "Alien Grenade"},
+		},
+		["GROUND"] = {
+		},
+	},
+}

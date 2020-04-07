@@ -1,0 +1,36 @@
+return {
+	Name = "Ethereal soldier",
+	SkinType = 8,
+	fFemale = 0,
+	Appearance = 0,
+	Attributes = {
+		TimeUnits = 60,
+		Health = 70,
+		Stamina = 50,
+		Reactions = 60,
+		Strength = 25,
+		Firing = 80,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Heavy Plasma", "Heavy Plasma Clip"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}
