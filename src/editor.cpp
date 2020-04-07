@@ -363,7 +363,7 @@ void Editor::show()
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F1: Help")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("    F2/F3: Save/load team")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F4: Edit soldier attributes")); ty += 10;
-                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F5: Change weaponset")); ty += 15;
+                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F5: Change weaponset")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("       F6: Save as weapon set template")); ty += 15;
 
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _(" Ctrl+Ins: Save soldier template")); ty += 10;
@@ -371,6 +371,7 @@ void Editor::show()
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      Del: Delete items of current man")); /*ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+Del: Drop items of current man"));*/ ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F11: Randomise Name")); ty += 10;
+                    textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+F11: Randomise all names")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      F12: Cycle through human armours")); ty += 10;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("Shift+F12: Cycle through alien races")); ty += 15;
                     textprintf(screen2, font,  330, ty, COLOR_BLUE,     _("      Tab: Next soldier")); ty += 10;
@@ -470,7 +471,11 @@ void Editor::show()
                     break;
 
                 case KEY_F11:  // Randomise name
-                    randomise_name(man);
+
+                    if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT]) ) // Shift-F12: Aliens
+                        randomise_all_names();
+                    else
+                        randomise_name(man);
                     break;
                 case KEY_F12:  // cycle thru armor-types:
                     A1 = man->md.SkinType;
@@ -1047,7 +1052,15 @@ void Editor::randomise_name(Soldier *src)
     lua_pushstring(L, src->get_name());
     lua_pushnumber(L, src->md.SkinType);
     lua_safe_call(L, 3, 0);
+}
 
+void Editor::randomise_all_names()
+{
+    Soldier *ss = man;
+    do {
+        randomise_name(ss);
+        ss = ss->nextman();
+    } while (ss != man);
 }
 
 void Editor::load_soldier(Soldier *src)

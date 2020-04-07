@@ -67,6 +67,7 @@ private:
     void save_soldier(Soldier *src);
     void load_soldier(Soldier *dest);
     void randomise_name(Soldier *dest);
+    void randomise_all_names(void);
 
     void change_equipment();
     void scroll_equipment(int delta);
