@@ -969,6 +969,10 @@ function MapGenerator(name, size_x, size_y)
     return TerrainTable[name].MapGenerator(CreateMapTemplate(size_x, size_y))
 end
 
+function CheckForXcomData() 
+    return ReadFile(LocateFile("$(xcom)/ufograph/x1.pck"))
+end
+
 ------------------------------------------------------------------------------
 
 Message("#\n# UFO2000 started: %s\n#", os.date("%Y-%m-%d %H:%M:%S"))
