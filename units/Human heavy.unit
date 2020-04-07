@@ -1,0 +1,38 @@
+return {
+	Name = "Human heavy",
+	SkinType = 3,
+	fFemale = 0,
+	Appearance = 0,
+	Attributes = {
+		TimeUnits = 50,
+		Health = 60,
+		Stamina = 50,
+		Reactions = 60,
+		Strength = 35,
+		Firing = 80,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Auto-Cannon", "Auto-Cannon I-Ammo"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+			{0, 0, "Auto-Cannon I-Ammo"},
+			{2, 0, "Auto-Cannon I-Ammo"},
+		},
+		["GROUND"] = {
+		},
+	},
+}

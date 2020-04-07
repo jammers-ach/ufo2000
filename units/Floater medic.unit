@@ -1,0 +1,37 @@
+return {
+	Name = "Floater medic",
+	SkinType = 9,
+	fFemale = 0,
+	Appearance = 0,
+	Attributes = {
+		TimeUnits = 80,
+		Health = 60,
+		Stamina = 80,
+		Reactions = 50,
+		Strength = 25,
+		Firing = 50,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{1, 1, "Plasma Pistol", "Plasma Pistol Clip"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+			{0, 0, "MediKit"},
+		},
+		["GROUND"] = {
+		},
+	},
+}

@@ -1,0 +1,36 @@
+return {
+	Name = "Human sniper",
+	SkinType = 2,
+	fFemale = 0,
+	Appearance = 1,
+	Attributes = {
+		TimeUnits = 60,
+		Health = 50,
+		Stamina = 50,
+		Reactions = 80,
+		Strength = 25,
+		Firing = 80,
+		Throwing = 50,
+	},
+	Inventory = {
+		["RIGHT SHOULDER"] = {
+		},
+		["LEFT SHOULDER"] = {
+		},
+		["RIGHT HAND"] = {
+			{0, 0, "Heavy Laser"},
+		},
+		["LEFT HAND"] = {
+		},
+		["RIGHT LEG"] = {
+		},
+		["LEFT LEG"] = {
+		},
+		["BACK PACK"] = {
+		},
+		["BELT"] = {
+		},
+		["GROUND"] = {
+		},
+	},
+}
