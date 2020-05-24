@@ -196,7 +196,7 @@ bool Editor::handle_mouse_leftclick()
             for (i = 0; i < NUMBER_OF_PLACES; i++) {
                 if (man->place(i)->mdeselect(sel_item, 0, 0)) {
 
-                    if (sel_item_place == P_ARMOURY && (key[KEY_LSHIFT]) || (key[KEY_RSHIFT])) {
+                    if (sel_item_place == P_ARMOURY && (key[KEY_LSHIFT] || key[KEY_RSHIFT])) {
                         // While holding SHIFT key, the same item remains selected, so we don't
                         // drop it to the soldier, but make a copy - useful for equipping with
                         // clips or grenades
