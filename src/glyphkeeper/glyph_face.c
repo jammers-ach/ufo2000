@@ -266,8 +266,7 @@ GLYPH_FACE* _gk_load_face_from_file(const char* const fname,const int face_index
                 if (dirname_length + fname_length < 1000)
                 {
                     strncpy(buf,c,dirname_length);
-                    strncpy(buf+dirname_length,fname,fname_length);
-                    buf[dirname_length+fname_length] = 0;
+                    strncpy(buf+dirname_length,fname,fname_length+1);
 #ifdef GLYPH_LOG
                     if (glyph_log) fprintf(glyph_log,"Trying to open file :::%s:::\n",buf);
 #endif
