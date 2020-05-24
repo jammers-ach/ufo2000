@@ -120,7 +120,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -136,7 +136,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -151,7 +151,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -1214,7 +1214,7 @@ int Soldier::dirto(int src_col, int src_row, int dest_col, int dest_row)
 {
     fixed ox = itofix(dest_col - src_col);
     fixed oy = itofix(dest_row - src_row);
-    int ang = fixtoi(fatan2(oy, ox));
+    int ang = fixtoi(fixatan2(oy, ox));
     if (ang < 0) ang = 256 + ang;
     ang = (ang + 16) % 256;
     return ang >> 5;
@@ -1226,7 +1226,7 @@ bool Soldier::faceto(int dest_col, int dest_row)
     fixed ox = itofix(dest_col - x);
     fixed oy = itofix(dest_row - y);
     if ((!ox) && (!oy)) return true; // No turning required
-    int ang = fixtoi(fatan2(oy, ox));
+    int ang = fixtoi(fixatan2(oy, ox));
     if (ang < 0) ang = 256 + ang;
     ang = (ang + 16) % 256;
     //text_mode(-1); textprintf(screen, font, 1, 1, 1, "ang = %d", ang); readkey();
