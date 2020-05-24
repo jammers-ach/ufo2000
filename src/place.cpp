@@ -641,7 +641,7 @@ int Place::get_items_list(std::vector<Item *> &items)
     return count;
 }
 
-int Place::save_items(char *fs, int _z, int _x, int _y, char *txt)
+int Place::save_items(const char *fs, int _z, int _x, int _y, char *txt)
 {
     int len = 0;
     Item *t = m_item;

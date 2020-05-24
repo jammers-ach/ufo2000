@@ -192,7 +192,7 @@ int do_mainmenu()
     memset(the_dialog, 0, sizeof(the_dialog));
 
     // Creation of the lua - programming name referencing table
-    char *button_list[MAINMENU_COUNT];
+    const char *button_list[MAINMENU_COUNT];
     button_list[MAINMENU_BACKGROUND] = "";
     button_list[MAINMENU_YIELD] = "";
     button_list[MAINMENU_INTERNET] = "ButtonInternet";

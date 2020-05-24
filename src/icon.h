@@ -179,12 +179,12 @@ public:
 	
 	const char *name;
 	
-	void Draw(BITMAP *dest, char *val)
+	void Draw(BITMAP *dest, const char *val)
 	{
 		textout(dest, font, val, x, y, xcom1_color(color));
 	};
 	
-	void Draw(BITMAP *dest, int val, char *format)
+	void Draw(BITMAP *dest, int val, const char *format)
 	{
 		textprintf(dest, font, x, y, xcom1_color(color), format, val);
 	};
@@ -258,8 +258,8 @@ public:
 	}                        
 	
 	void draw_item(int itm, Item *it, int rounds, int prime, bool primed);
-	void draw_text(int txt, char *val);
-	void draw_text(int txt, int val, char *format);
+	void draw_text(int txt, const char *val);
+	void draw_text(int txt, int val, const char *format);
 	void draw_attribute(int attr, int val, int maxval);
 	
 	void draw_stun_bar(int x, int y, int val, int maxval);

@@ -27,7 +27,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #include "multiplay.h"
 #include "units.h"
 
-char *Packet::strCommand[COMMAND_NUM] = {
+const char *Packet::strCommand[COMMAND_NUM] = {
     "NOTE", "QUIT", "TURN", "DOOR", "POSE", "PRIM", "UNLO", "LOAD",
     "TAKE", "DROP", "MOVE", "FACE", "TACT", "ADUN", "PDSZ", "PDAT",
     "SEUN", "DEUN", "MDAT", "STRT", "REST", "TLIM", "TCRC", "ELEV",

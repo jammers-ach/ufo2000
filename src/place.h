@@ -76,7 +76,7 @@ public:
     void export_as_weaponset(const char *fn);
     void save_to_string(std::string &str);
 
-    int save_items(char *fs, int _z, int _x, int _y, char *txt);
+    int save_items(const char *fs, int _z, int _x, int _y, char *txt);
     int eot_save(int ip, char *txt);
 
     int count_weight();

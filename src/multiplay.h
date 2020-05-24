@@ -125,7 +125,7 @@ public:
     void close();
     void check();
     void log(const char *fmt, ...);
-    void error(char *str);
+    void error(const char *str);
 
     void send_message(const std::string &msg);
 

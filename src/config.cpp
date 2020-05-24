@@ -38,10 +38,10 @@ extern int speed_bullet;
 extern int speed_mapscroll;
 extern int mapscroll;
 
-static char *gen = "General";
-static char *edit = "Editor";
-static char *serv = "Server";
-static char *flag = "Flags";
+static const char *gen = "General";
+static const char *edit = "Editor";
+static const char *serv = "Server";
+static const char *flag = "Flags";
 
 static int base_accuracy = 120;
 static int preferred_screen_xres = 640;

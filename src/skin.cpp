@@ -87,7 +87,7 @@ Skin::Skin(Soldier *soldier, int skin_type, int female_flag)
 
 void Skin::initpck()
 {
-    static char *skin_fname[] = {
+    static const char *skin_fname[] = {
         "handob.pck", "xcom_0.pck", "xcom_1.pck", "xcom_2.pck", "xcom_2.pck",
         "sectoid.pck", "muton.pck", "snakeman.pck", "ethereal.pck", "floater.pck",
         "chrys.pck", "silacoid.pck", "celatid.pck", "civm.pck", "civf.pck",

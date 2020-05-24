@@ -344,7 +344,7 @@ void Soldier::build_ITEMDATA()
     }
 }
 
-static char *place_name_id[11] = {
+static const char *place_name_id[11] = {
     "RIGHT SHOULDER",
     "LEFT SHOULDER",
     "RIGHT HAND",
@@ -3126,7 +3126,7 @@ int Soldier::check_reaction_fire(Soldier *the_target)
 int Soldier::do_reaction_fire(Soldier *the_target, int place, int shot_type)
 {
     Item *it = item(place);
-    char *type_str = NULL;
+    const char *type_str = NULL;
     if (it == NULL) return 0; // no item in hand
     if (!it->obdata_isGun() && !it->is_laser()) return 0; // item is not a gun or laser
     if (!it->is_laser()     && !it->haveclip()) return 0; // gun with no clip
