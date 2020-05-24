@@ -689,7 +689,10 @@ void initmain(int argc, char *argv[])
     init_fpu();
     srand(time(NULL));
     set_uformat(U_UTF8);
-    allegro_init();
+    if (allegro_init()) {
+        fprintf(stderr, "allegro_init failed %s\n", allegro_error);
+        exit(1);
+    }
     jpgalleg_init();
 #ifdef HAVE_PNG
     _png_screen_gamma = 0.0;
