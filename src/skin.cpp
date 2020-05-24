@@ -485,13 +485,13 @@ void Skin::draw_common() //LAWYER:  I'm going to attempt to explain this as I go
         return ;
     }
     
-    int arm1, arm2, army, handob_y = 0;
+    int arm1, arm2, handob_y = 0;
     int yofs;
 
     BITMAP *image = m_image;
     clear_to_color(image, xcom1_color(0));
 
-    arm1 = 0; arm2 = 0; army = 5;
+    arm1 = 0; arm2 = 0;
     if (dir < 4) {
         arm2 = 1;
     } else {
@@ -665,7 +665,7 @@ void Skin::draw_snakeman()
     //-----Initialisation-----
     State state = m_soldier->state(); //LAWYER:  Current state, such as crouch, or flight?
     int x = m_soldier->x, y = m_soldier->y, z = m_soldier->z; //LAWYER:  Map positions?
-    int dir = m_soldier->dir, phase = m_soldier->phase, is_flying = m_soldier->is_flying(); //Direction, animation phase, flying state?
+    int dir = m_soldier->dir, phase = m_soldier->phase; //Direction, animation phase
     Item *lhand_item = m_soldier->lhand_item(), *rhand_item = m_soldier->rhand_item(); //Items in hand, pointers to them
     
     int head_frame = 24; //LAWYER:  The snakeman head animations start at frame 24.
@@ -683,13 +683,13 @@ void Skin::draw_snakeman()
         return ;
     }
     
-    int arm1, arm2, army, handob_y = 0;
+    int arm1, arm2, handob_y = 0;
     int yofs;
 
     BITMAP *image = m_image;
     clear_to_color(image, xcom1_color(0));
 
-    arm1 = 0; arm2 = 0; army = 5;
+    arm1 = 0; arm2 = 0;
     if (dir < 4) {
         arm2 = 1;
     } else {
@@ -776,7 +776,7 @@ void Skin::draw_snakeman()
             }
             m_pck[skin_info.SkinType]->drawpck(32 + phase + (dir * 8), image, 0);      //Tail
         m_pck[skin_info.SkinType]->drawpck(dir + head_frame, image, yofs);      //LAWYER:  As there's only one possible head option with the snakeman, we can use the redundant method of drawing head images
-        int yo = 0; //LAWYER:  Y offset for legs
+//        int yo = 0; //LAWYER:  Y offset for legs
 //            if (phase % 4 == 0) yo = -1;
             
 
@@ -839,19 +839,8 @@ void Skin::draw_ethereal()
     gy += m_soldier->calc_z();
 
     
-    int arm1, arm2, army, handob_y = 0;
-    int yofs;
-
     BITMAP *image = m_image;
     clear_to_color(image, xcom1_color(0));
-
-    arm1 = 0; arm2 = 0; army = 5;
-    if (dir < 4) {
-        arm2 = 1;
-    } else {
-        arm1 = 1;
-    }
-
 
     //LAWYER:  If we're falling, skip any calculations for building the character and draw the death sequence
     if (state == FALL) {
@@ -924,7 +913,7 @@ void Skin::draw_floater() //LAWYER:  The Floater.  Note that due to animation od
     
     State state = m_soldier->state(); //LAWYER:  Current state, such as crouch, or standing, walking, or dying.  Floaters don't have a crouch animation
     int x = m_soldier->x, y = m_soldier->y, z = m_soldier->z; //LAWYER:  Map positions
-    int dir = m_soldier->dir, phase = m_soldier->phase, is_flying = m_soldier->is_flying(); //Direction, animation phase, flying state
+    int dir = m_soldier->dir, phase = m_soldier->phase; //Direction, animation phase
     Item *lhand_item = m_soldier->lhand_item(), *rhand_item = m_soldier->rhand_item(); //Items in hand, pointers to them
     
     //LAWYER:  Placement in the map, to do with drawing the object
@@ -938,12 +927,12 @@ void Skin::draw_floater() //LAWYER:  The Floater.  Note that due to animation od
         return ;
     }
     
-    int arm1, arm2, army, handob_y = 0;
+    int arm1, arm2;
 
     BITMAP *image = m_image;
     clear_to_color(image, xcom1_color(0)); //LAWYER:  This sets the colour pallet for the object.  As it's a UFO creature, it gets XCOM1
 
-    arm1 = 0; arm2 = 0; army = 5;
+    arm1 = 0; arm2 = 0;
     if (dir < 4) { //LAWYER:  Adjust the choice of which arm is drawn first based on direction
         arm2 = 1;
     } else {
@@ -1082,13 +1071,13 @@ void Skin::draw_chrys()
         return ;
     }
     
-    int arm1, arm2, army, handob_y = 0;
+    int arm1, arm2, handob_y = 0;
     int yofs;
 
     BITMAP *image = m_image;
     clear_to_color(image, xcom1_color(0));
 
-    arm1 = 0; arm2 = 0; army = 5;
+    arm1 = 0; arm2 = 0;
     if (dir < 4) {
         arm2 = 1;
     } else {

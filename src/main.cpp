@@ -2218,7 +2218,6 @@ void gameloop()
     int select_y = 0;
     int mouse_leftr = 1, mouse_rightr = 1;
     int old_mouse_z = mouse_z; // mouse wheel status on the previous cycle
-    int color1;
     int b1 = 0, k, who;
     char buf[STDBUFSIZE];
 
@@ -2238,7 +2237,6 @@ void gameloop()
 
     g_console->printf( COLOR_SYS_HEADER, _("Welcome to the battlescape of UFO2000 !") );
     g_console->printf( COLOR_SYS_INFO1,  _("Press F1 for help.") );  // see KEY_F1
-    color1 = 0;
     battle_report( "*\n* %s: %s\n*\n\n", _("Battlereport"), datetime() );
 
     platoon_local->initialize_vision_matrix();

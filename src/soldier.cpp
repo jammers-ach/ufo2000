@@ -602,10 +602,10 @@ void Soldier::restore()
     }
     /* Stuns a man on start of the game if a conflict between two spawning units is detected. */
     if (stun_on_init) {
-        int z0, x0, y0;
-        z0 = z;
-        x0 = x;
-        y0 = y;
+        //int z0, x0, y0;
+        //z0 = z;
+        //x0 = x;
+        //y0 = y;
         fall_stun();
         //g_map->man(z0, x0, y0)->draw();
         stun_on_init = false;

@@ -286,7 +286,6 @@ void Editor::show()
     int mouse_leftr = 1, mouse_rightr = 1;
     int i;
     int color = COLOR_LT_OLIVE;
-    int A1 = 0, A2 = 0;
     int soldier_id = 0;
 
     while (mouse_b & 3) rest(1);
@@ -478,7 +477,6 @@ void Editor::show()
                         randomise_name(man);
                     break;
                 case KEY_F12:  // cycle thru armor-types:
-                    A1 = man->md.SkinType;
                     if ((key[KEY_LSHIFT]) || (key[KEY_RSHIFT]) ) // Shift-F12: Aliens
                         man->skin()->next_alien();
                     else // F12: Human Armor
@@ -1047,7 +1045,6 @@ void Editor::randomise_name(Soldier *src)
     lua_pushstring(L, "RandomiseName");
     lua_gettable(L, LUA_GLOBALSINDEX);
 
-    int stack_top = lua_gettop(L);
     LUA_PUSH_OBJECT_POINTER(L, src);
     lua_pushstring(L, src->get_name());
     lua_pushnumber(L, src->md.SkinType);
