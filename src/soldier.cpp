@@ -908,10 +908,11 @@ int Soldier::move(int ISLOCAL)
                 } else {
                     if (time_reserve(walktime(way[curway]), ISLOCAL) != OK)
                         finish_march(ISLOCAL);
-                    else
+                    else {
                         move_dir = way[curway];
                         if( way[curway] < 8)
                             dir = way[curway];
+                    }
                 }
             }
             return 1;
