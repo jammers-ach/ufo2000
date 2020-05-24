@@ -1563,9 +1563,10 @@ void build_screen(int & select_y)
 
     if (net->gametype == GAME_TYPE_REPLAY) {
         char buf[10];
-        if (replaydelay != -1)
+        if (replaydelay != -1) {
+            assert(replaydelay >= 0 && replaydelay <= 8);
             sprintf(buf, "< %d >", 9 - replaydelay);
-        else
+        } else
             sprintf(buf, "< P >");
         rect(screen2, 0, 10, text_length(font, buf) + 2, text_height(font) + 12, COLOR_GRAY01);
         rectfill(screen2, 1, 11, text_length(font, buf) + 1, text_height(font) + 11, COLOR_GRAY15);
