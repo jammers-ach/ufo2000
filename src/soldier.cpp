@@ -120,7 +120,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -136,7 +136,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -151,7 +151,7 @@ Soldier::Soldier(Platoon *platoon, int _NID, int _z, int _x, int _y, MANDATA *md
             if ((!ox) && (!oy)) {
                 dir = 0;
             } else {
-                ang = fixtoi(fatan2(oy, ox));
+                ang = fixtoi(fixatan2(oy, ox));
                 if (ang < 0) ang = 256 + ang;
                 ang = (ang + 16) % 256;
                 dir = ang >> 5;
@@ -344,7 +344,7 @@ void Soldier::build_ITEMDATA()
     }
 }
 
-static char *place_name_id[11] = {
+static const char *place_name_id[11] = {
     "RIGHT SHOULDER",
     "LEFT SHOULDER",
     "RIGHT HAND",
@@ -602,10 +602,10 @@ void Soldier::restore()
     }
     /* Stuns a man on start of the game if a conflict between two spawning units is detected. */
     if (stun_on_init) {
-        int z0, x0, y0;
-        z0 = z;
-        x0 = x;
-        y0 = y;
+        //int z0, x0, y0;
+        //z0 = z;
+        //x0 = x;
+        //y0 = y;
         fall_stun();
         //g_map->man(z0, x0, y0)->draw();
         stun_on_init = false;
@@ -908,10 +908,11 @@ int Soldier::move(int ISLOCAL)
                 } else {
                     if (time_reserve(walktime(way[curway]), ISLOCAL) != OK)
                         finish_march(ISLOCAL);
-                    else
+                    else {
                         move_dir = way[curway];
                         if( way[curway] < 8)
                             dir = way[curway];
+                    }
                 }
             }
             return 1;
@@ -1214,7 +1215,7 @@ int Soldier::dirto(int src_col, int src_row, int dest_col, int dest_row)
 {
     fixed ox = itofix(dest_col - src_col);
     fixed oy = itofix(dest_row - src_row);
-    int ang = fixtoi(fatan2(oy, ox));
+    int ang = fixtoi(fixatan2(oy, ox));
     if (ang < 0) ang = 256 + ang;
     ang = (ang + 16) % 256;
     return ang >> 5;
@@ -1226,7 +1227,7 @@ bool Soldier::faceto(int dest_col, int dest_row)
     fixed ox = itofix(dest_col - x);
     fixed oy = itofix(dest_row - y);
     if ((!ox) && (!oy)) return true; // No turning required
-    int ang = fixtoi(fatan2(oy, ox));
+    int ang = fixtoi(fixatan2(oy, ox));
     if (ang < 0) ang = 256 + ang;
     ang = (ang + 16) % 256;
     //text_mode(-1); textprintf(screen, font, 1, 1, 1, "ang = %d", ang); readkey();
@@ -3126,7 +3127,7 @@ int Soldier::check_reaction_fire(Soldier *the_target)
 int Soldier::do_reaction_fire(Soldier *the_target, int place, int shot_type)
 {
     Item *it = item(place);
-    char *type_str = NULL;
+    const char *type_str = NULL;
     if (it == NULL) return 0; // no item in hand
     if (!it->obdata_isGun() && !it->is_laser()) return 0; // item is not a gun or laser
     if (!it->is_laser()     && !it->haveclip()) return 0; // gun with no clip

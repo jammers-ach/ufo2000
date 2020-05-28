@@ -298,6 +298,7 @@ void draw_sprite(BITMAP *dst, BITMAP *src, int dx, int dy, unsigned int brightne
 
     // Process clipping
     PROCESS_CLIPPING();
+    (void)clipflag;
 
     const uint16 **sl = (const uint16 **)&src->line[sybeg];
     uint16 **dl = (uint16 **)&dst->line[dybeg];

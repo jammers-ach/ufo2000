@@ -689,7 +689,10 @@ void initmain(int argc, char *argv[])
     init_fpu();
     srand(time(NULL));
     set_uformat(U_UTF8);
-    allegro_init();
+    if (allegro_init()) {
+        fprintf(stderr, "allegro_init failed %s\n", allegro_error);
+        exit(1);
+    }
     jpgalleg_init();
 #ifdef HAVE_PNG
     _png_screen_gamma = 0.0;
@@ -1560,9 +1563,10 @@ void build_screen(int & select_y)
 
     if (net->gametype == GAME_TYPE_REPLAY) {
         char buf[10];
-        if (replaydelay != -1)
+        if (replaydelay != -1) {
+            assert(replaydelay >= 0 && replaydelay <= 8);
             sprintf(buf, "< %d >", 9 - replaydelay);
-        else
+        } else
             sprintf(buf, "< P >");
         rect(screen2, 0, 10, text_length(font, buf) + 2, text_height(font) + 12, COLOR_GRAY01);
         rectfill(screen2, 1, 11, text_length(font, buf) + 1, text_height(font) + 11, COLOR_GRAY15);
@@ -2218,7 +2222,6 @@ void gameloop()
     int select_y = 0;
     int mouse_leftr = 1, mouse_rightr = 1;
     int old_mouse_z = mouse_z; // mouse wheel status on the previous cycle
-    int color1;
     int b1 = 0, k, who;
     char buf[STDBUFSIZE];
 
@@ -2238,7 +2241,6 @@ void gameloop()
 
     g_console->printf( COLOR_SYS_HEADER, _("Welcome to the battlescape of UFO2000 !") );
     g_console->printf( COLOR_SYS_INFO1,  _("Press F1 for help.") );  // see KEY_F1
-    color1 = 0;
     battle_report( "*\n* %s: %s\n*\n\n", _("Battlereport"), datetime() );
 
     platoon_local->initialize_vision_matrix();

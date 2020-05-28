@@ -157,8 +157,8 @@ ifndef no_ttf
 ifdef win32
 	LIBS += -lfreetype
 else
-	CFLAGS += ${shell freetype-config --cflags}
-	LIBS += ${shell freetype-config --libs}
+	CFLAGS += ${shell pkg-config freetype2 --cflags}
+	LIBS += ${shell pkg-config freetype2 --libs}
 endif
 	CFLAGS += -DHAVE_FREETYPE -DGLYPH_TARGET=GLYPH_TARGET_ALLEGRO -DGK_NO_LEGACY
 	SRCS += glyph.c
@@ -189,13 +189,13 @@ ifdef win32
 	SRCS += exchndl.c
 else
 	CFLAGS += -DLINUX
-	INCLUDES = ${shell allegro-config --cflags}
+	INCLUDES = ${shell pkg-config allegro --cflags}
 	CFLAGS += $(INCLUDES)
 ifdef static	
-	LIBS := -static $(LIBS) ${shell allegro-config --libs}
+	LIBS := -static $(LIBS) ${shell pkg-config allegro --libs}
 	SERVER_LIBS += -static -lNL -pthread
 else
-	LIBS += -pthread ${shell allegro-config --libs}
+	LIBS += -pthread ${shell pkg-config allegro --libs}
 	SERVER_LIBS += -lNL -pthread
 endif
 endif

@@ -58,7 +58,7 @@ private:
     //Replays depend on the buffersize
     char data[100000]; // BUG: possible buffer overflow
     int cur, size;
-    static char *strCommand[COMMAND_NUM];
+    static const char *strCommand[COMMAND_NUM];
 public:
     int Position; //!< 1 - the sender is a player going first, 2 - second
     Packet();

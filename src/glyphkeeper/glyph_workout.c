@@ -366,7 +366,10 @@ static GLYPH* _gk_rend_workout(GLYPH_REND* const rend,const unsigned unicode)
     {
         if (rend->bold_strength && actual_face->face->glyph->format==FT_GLYPH_FORMAT_OUTLINE)
         {
-            int xstr, ystr, xstr2, ystr2;
+            int xstr, ystr;
+#ifdef GLYPH_LOG
+            int xstr2, ystr2;
+#endif
             int xmin,xmax,ymin,ymax;
             int center_dx, center_dy;
             FT_GlyphSlot slot = actual_face->face->glyph;
@@ -392,9 +395,9 @@ static GLYPH* _gk_rend_workout(GLYPH_REND* const rend,const unsigned unicode)
             if (glyph_log) fprintf(glyph_log,"            xstr = %d, ystr = %d\n",xstr,ystr);
 #endif
 
+#ifdef GLYPH_LOG
             xstr2 = xmin+xmax;
             ystr2 = ymin+ymax;
-#ifdef GLYPH_LOG
             if (glyph_log) fprintf(glyph_log,"            xstr2 = %d, ystr2 = %d\n",xstr2,ystr2);
             if (glyph_log) fprintf(glyph_log,"            xscale = %.5f\n",((double)actual_face->face->size->metrics.x_scale)/65536);
             if (glyph_log) fprintf(glyph_log,"            yscale = %.5f\n",((double)actual_face->face->size->metrics.y_scale)/65536);

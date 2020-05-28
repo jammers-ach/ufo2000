@@ -64,7 +64,7 @@ void closehotseatgame()
     while (!g_hotseat_cmd_queue.empty()) g_hotseat_cmd_queue.pop_front();
 }
 
-void Net::error(char *str)
+void Net::error(const char *str)
 {
     g_console->printf("___error in %s___", str);
     log("%s\n", str);

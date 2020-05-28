@@ -1014,12 +1014,12 @@ void Icon::draw_attribute(int attr, int val, int maxval)
 /**
  * Draw text into icon-area, e.g. Turn-number
  */
-void Icon::draw_text(int txt, char *val)
+void Icon::draw_text(int txt, const char *val)
 {
     text[txt].Draw(iconsbmp, val);
 }
 
-void Icon::draw_text(int txt, int val, char *format)
+void Icon::draw_text(int txt, int val, const char *format)
 {
     text[txt].Draw(iconsbmp, val, format);
 }

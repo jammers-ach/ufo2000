@@ -192,7 +192,7 @@ int do_mainmenu()
     memset(the_dialog, 0, sizeof(the_dialog));
 
     // Creation of the lua - programming name referencing table
-    char *button_list[MAINMENU_COUNT];
+    const char *button_list[MAINMENU_COUNT];
     button_list[MAINMENU_BACKGROUND] = "";
     button_list[MAINMENU_YIELD] = "";
     button_list[MAINMENU_INTERNET] = "ButtonInternet";
@@ -210,7 +210,7 @@ int do_mainmenu()
     for (i = 0; i < MAINMENU_COUNT; i++) {
         the_dialog[i].proc = d_mainmenu_button_proc;
         //We get the values from the LUA if this button exists, otherwise we use defaults
-        if ( button_list[i] != "" ){
+        if ( strcmp(button_list[i], "") != 0 ){
             the_dialog[i].x = scrmenu->Feature(button_list[i])->get_pd_x1();
             the_dialog[i].y = scrmenu->Feature(button_list[i])->get_pd_y1();
             the_dialog[i].w = scrmenu->Feature(button_list[i])->get_width();

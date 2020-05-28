@@ -414,7 +414,8 @@ int select_help()
 	centre_dialog(the_dialog);
 
 	set_dialog_color(the_dialog, COLOR_BLACK1, COLOR_WHITE);
-	ret = popup_dialog(the_dialog, -1);
+	//ret = popup_dialog(the_dialog, -1);
+	popup_dialog(the_dialog, -1);
 
     sel = the_dialog[ 2 ].d1;   // from listbox-entry
   //return sel;

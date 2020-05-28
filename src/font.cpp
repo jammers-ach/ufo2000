@@ -431,7 +431,7 @@ static int uaf_text_length(AL_CONST FONT *f, AL_CONST char *text) {
 static int uaf_render_char(AL_CONST FONT *f, int ch, int fg, int bg, BITMAP *bmp, int x, int y) {
     uaf_fontcache *thecache = NULL;
     uaf_internal_data *idat = (uaf_internal_data *) (f->data);
-    int i, gotcache = 0, srcy, srcw, srch;
+    int i, gotcache = 0, srcy, srcw;
     BITMAP *srcbmp;
     
     /* dump_font_info(f); */
@@ -459,8 +459,6 @@ static int uaf_render_char(AL_CONST FONT *f, int ch, int fg, int bg, BITMAP *bmp
     if ((!gotcache) || idat->cachecount == 0 ) {
         thecache = uaf_make_cacheentry(f, bg, fg);
     }
-    
-    srch = f->height;
     
     switch (ch >> 8) {
         case 0: /* basic latin & latin-1 */

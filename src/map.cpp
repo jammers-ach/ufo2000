@@ -1590,12 +1590,12 @@ void Map::update_vision_matrix(Soldier *watcher)
     int ang = dir * 32;
 /* Sweep vertical... should be : up above to 45 degrees underneath*/
     for (int fi = 8; fi <= 128 - 32; fi += 1) {
-        fixed cos_fi = fcos(itofix(fi));
-        fixed sin_fi = fsin(itofix(fi));
+        fixed cos_fi = fixcos(itofix(fi));
+        fixed sin_fi = fixsin(itofix(fi));
 /* Sweep horizontal */
         for (int te = ang - 32; te <= ang + 32; te += 1) {
-            fixed cos_te = fcos(itofix(te));
-            fixed sin_te = fsin(itofix(te));
+            fixed cos_te = fixcos(itofix(te));
+            fixed sin_te = fixsin(itofix(te));
 
             int oz = pos.level(), ox = pos.column(), oy = pos.row();
             int l;
@@ -1606,9 +1606,9 @@ void Map::update_vision_matrix(Soldier *watcher)
 /* Sweep distance */
             for (l = 1; l < 18 - smokeway * 3; l++) { /////////////from smoke
 
-                vz = pos.level() + fixtoi(fmul(itofix(l), cos_fi));                
-                vx = pos.column() + fixtoi(fmul(itofix(l), fmul(cos_te, sin_fi)));
-                vy = pos.row() + fixtoi(fmul(itofix(l), fmul(sin_te, sin_fi)));
+                vz = pos.level() + fixtoi(fixmul(itofix(l), cos_fi));                
+                vx = pos.column() + fixtoi(fixmul(itofix(l), fixmul(cos_te, sin_fi)));
+                vy = pos.row() + fixtoi(fixmul(itofix(l), fixmul(sin_te, sin_fi)));
                 
                 
                 if (!cell_inside(vz, vx, vy))
